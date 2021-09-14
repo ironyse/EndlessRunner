@@ -1,0 +1,1 @@
+{"diamondAmount":123,"highScore":250,"characterNames":["Male Adventurer","Female Adventurer","Male Person","Female Person","Robot","Zombie"]}
