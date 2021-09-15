@@ -27,10 +27,8 @@ public class PlayerCharacterController : MonoBehaviour
         GameManager.Instance.SetSelectedChar(_character);
     }
 
-    private void Update()
-    {
-        if (IsUnlocked)
-        {
+    private void Update(){
+        if (IsUnlocked){
             IsSelected = (GameManager.Instance.SelectedCharacter() == _character);
             SelectText.text = IsSelected ? "Selected" : "Select";
             SelectButton.enabled = !IsSelected;
@@ -54,6 +52,7 @@ public class PlayerCharacterController : MonoBehaviour
                     CurrencyData.diamondAmount -= UnlockCost;                 
                     GameManager.Instance.UnlockCharacter(_character.Name);
                     GameManager.Instance.Save();
+                    IsUnlocked = true;
                     SetButtonUnlocked();
                 }
             });
