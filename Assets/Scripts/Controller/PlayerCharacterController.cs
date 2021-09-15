@@ -27,13 +27,20 @@ public class PlayerCharacterController : MonoBehaviour
         GameManager.Instance.SetSelectedChar(_character);
     }
 
+    private void Update()
+    {
+        if (IsUnlocked)
+        {
+            IsSelected = (GameManager.Instance.SelectedCharacter() == _character);
+            SelectText.text = IsSelected ? "Selected" : "Select";
+            SelectButton.enabled = !IsSelected;
+        }
+    }
+
     private void SetButtonUnlocked(){
         UnlockButton.gameObject.SetActive(false);
         SelectButton.gameObject.SetActive(true);
         SelectButton.onClick.AddListener(() => {
-            IsSelected = true;
-            SelectText.text = "Selected";
-            SelectButton.enabled = !IsSelected;
             SelectCharacter();
         });
     }

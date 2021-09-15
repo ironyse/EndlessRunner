@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
     public List<Character> GetCharacters() { return _characters; }
 
     private Character _selectedCharacter;
+
+    public Character SelectedCharacter()
+    {
+        return _selectedCharacter;
+    }
     public static RuntimeAnimatorController selectedPlayerAnimator;
 
     public Transform CharPanel;
